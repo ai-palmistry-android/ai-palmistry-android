@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI Palmistry</string>
+    <string name="package_name">com.aipalmistry.app</string>
+    <string name="host_name">ai-palmistry.ai.studio</string>
+    <string name="web_app_url">https://ai-palmistry.ai.studio</string>
+    <string name="offline_title">You Are Offline</string>
+    <string name="offline_message">Please check your internet connection to access real-time AI Palmistry readings and Vedic insights.</string>
+    <string name="retry_button">Try Again</string>
+</resources>

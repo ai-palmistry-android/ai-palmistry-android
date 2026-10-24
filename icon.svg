@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E1C28" />
+      <stop offset="100%" stop-color="#0B0B0E" />
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1B8" />
+      <stop offset="50%" stop-color="#E6C25B" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" fill="url(#bg)" stroke="#D4AF37" stroke-width="8" />
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="6,8" opacity="0.4" />
+  
+  <!-- Sacred Palm Motif -->
+  <path d="M 200 440 C 200 390 190 350 170 310 C 130 270 100 230 110 180 C 120 140 145 130 170 150 C 185 165 195 200 200 230 C 195 160 195 80 215 45 C 225 25 250 25 260 50 C 270 90 270 170 270 200 C 280 140 295 65 315 45 C 330 30 350 35 360 65 C 370 105 365 180 360 220 C 375 170 390 120 405 105 C 420 90 435 95 440 120 C 445 160 430 225 420 260 C 440 235 455 205 470 200 C 485 195 495 210 490 230 C 475 270 445 350 415 400 C 390 430 370 445 350 450 Z" 
+        fill="url(#gold)" opacity="0.9" />
+  
+  <!-- Star sparkles -->
+  <polygon points="256,180 264,204 288,212 264,220 256,244 248,220 224,212 248,204" fill="#FFFFFF" />
+  <polygon points="340,240 345,255 360,260 345,265 340,280 335,265 320,260 335,255" fill="#FFFFFF" />
+</svg>

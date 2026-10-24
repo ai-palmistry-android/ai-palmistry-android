@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Premium Black and Gold Palette -->
+    <color name="colorPrimary">#0B0B0E</color>
+    <color name="colorPrimaryDark">#050507</color>
+    <color name="colorAccent">#D4AF37</color>
+    <color name="goldLight">#F7E7A9</color>
+    <color name="goldMedium">#E6C25B</color>
+    <color name="goldDark">#B8860B</color>
+    <color name="surfaceDark">#14141E</color>
+    <color name="surfaceCard">#1E1C28</color>
+    <color name="textPrimary">#F3F1E7</color>
+    <color name="textSecondary">#A09CAE</color>
+    <color name="splashBackground">#0B0B0E</color>
+    <color name="statusBarColor">#0B0B0E</color>
+    <color name="navigationBarColor">#0B0B0E</color>
+</resources>

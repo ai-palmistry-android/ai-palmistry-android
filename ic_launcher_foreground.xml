@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer Sacred Circle -->
+    <path
+        android:strokeColor="#D4AF37"
+        android:strokeWidth="1.2"
+        android:fillColor="#00000000"
+        android:pathData="M54,54m-34,0a34,34 0,1 1,68 0a34,34 0,1 1,-68 0" />
+
+    <!-- Palm Silhouette Motif in Rich Gold -->
+    <path
+        android:fillColor="#E6C25B"
+        android:pathData="M48,80 C48,72 46,65 43,59 C37,53 32,47 34,39 C35,33 39,31 43,34 C45,37 47,42 48,47 C47,36 47,23 50,18 C52,15 56,15 57,19 C59,25 59,38 59,42 C61,33 63,21 66,18 C69,15 72,16 73,21 C75,27 74,39 73,45 C76,37 78,29 81,27 C83,24 86,25 87,29 C88,35 85,46 84,51 C87,47 89,43 92,42 C94,41 96,44 95,47 C93,53 88,66 84,74 C80,78 77,81 73,82 Z" />
+
+    <!-- Inner Life and Heart Line Details -->
+    <path
+        android:strokeColor="#0B0B0E"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M46,65 Q52,58 64,52" />
+        
+    <path
+        android:strokeColor="#0B0B0E"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M48,73 Q55,68 70,64" />
+
+    <!-- Celestial Sparkles -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,28 L56,32 L60,33 L56,34 L54,38 L52,34 L48,33 L52,32 Z" />
+
+    <path
+        android:fillColor="#F7E7A9"
+        android:pathData="M32,24 L33,26 L36,27 L33,28 L32,31 L31,28 L28,27 L31,26 Z" />
+</vector>

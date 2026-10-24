@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Luxury gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF1B8 0%, #E6C25B 40%, #B8860B 80%, #E6C25B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-subtle {
+  color: #D4AF37;
+}
+
+/* Gold border gradient */
+.border-gold-glow {
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 0 20px -5px rgba(212, 175, 55, 0.15);
+}
+
+.border-gold-glow-hover:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 25px -4px rgba(212, 175, 55, 0.28);
+}
+
+/* Palm scanner laser effect */
+@keyframes palmScanLaser {
+  0% {
+    top: 0%;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.2;
+  }
+}
+
+.animate-scan-laser {
+  animation: palmScanLaser 2.6s ease-in-out infinite;
+}
+
+/* Mystic pulse */
+@keyframes celestialPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.65;
+  }
+}
+
+.animate-celestial-pulse {
+  animation: celestialPulse 4s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0E;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
