@@ -1,53 +1,41 @@
-name: AI Palmistry
-on:
-workflow_dispatch:
-push:
-branches:
-- main
+name: AI Palmistry APK Build
+
+on: [push, workflow_dispatch]
 
 jobs:
-inspect:
-name: Inspect Project
-runs-on: ubuntu-latest
+  inspect:
+    name: Inspect Project
+    runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout project
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
 
-  - name: Set up Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-  - name: Inspect project files
-    run: |
-      echo "===== PROJECT ROOT ====="
-      ls -la
-      echo "===== IMPORTANT FILES ====="
-      find . -maxdepth 3 -type f \
-        -name "package.json" \
-        -o -name "capacitor.config.*" \
-        -o -name "app.json" \
-        -o -name "build.gradle" \
-        -o -name "settings.gradle" \
-        -o -name "gradlew" \
-        -not -path "./.git/*"
+      - name: Inspect project files
+        run: |
+          echo "===== PROJECT ROOT ====="
+          ls -la
+          echo "===== IMPORTANT FILES ====="
+          find . -maxdepth 3 -type f \( -name "package.json" -o -name "capacitor.config.*" -o -name "app.json" -o -name "build.gradle" -o -name "settings.gradle" -o -name "gradlew" \) -not -path "./.git/*"
 
-  - name: Check package configuration
-    run: |
-      if [ -f package.json ]; then
-        echo "===== PACKAGE.JSON ====="
-        cat package.json
-      else
-        echo "ERROR: package.json not found"
-      fi
+      - name: Check package configuration
+        run: |
+          if [ -f package.json ]; then
+            cat package.json
+          else
+            echo "ERROR: package.json not found"
+          fi
 
-  - name: Check Android directory
-    run: |
-      if [ -d android ]; then
-        echo "Android directory exists"
-        ls -la android
-      else
-        echo "Android directory is missing"
-        echo "More project information is needed before building the APK."
-      fi
+      - name: Check Android directory
+        run: |
+          if [ -d android ]; then
+            echo "Android directory exists"
+            ls -la android
+          else
+            echo "Android directory is missing"
+          fi
