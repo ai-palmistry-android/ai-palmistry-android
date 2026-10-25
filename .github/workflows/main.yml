@@ -1,30 +1,42 @@
-import 'package:flutter/material.dart';
-import 'package:google_generative_ai/google_generative_ai.dart';
+name: Build Flutter APK
 
-class PalmistryService {
-  // Apni Gemini API key yahan dalein
-  static const String _apiKey = 'YOUR_GEMINI_API_KEY';
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-  // Palmistry reading generate karne ka function
-  static Future<String?> analyzePalmQuestion(String question) async {
-    try {
-      final model = GenerativeModel(
-        model: 'gemini-1.5-flash',
-        apiKey: _apiKey,
-        systemInstruction: Content.system(
-          'Aap ek prashidh Hastrekha Vigyan (Vedic Palmistry) visheshagya hain. '
-          'User ke sawal ka uttar shuddh, vinamra aur vistrit roop me pradan karein.'
-        ),
-      );
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-      final response = await model.generateContent([
-        Content.text(question),
-      ]);
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      return response.text;
-    } catch (e) {
-      debugPrint('Error generating palmistry reading: $e');
-      return 'Kripya punah prayas karein: $e';
-    }
-  }
-}
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.x'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: ./ai-palmistry-android
+
+      - name: Build Debug APK
+        run: flutter build apk --debug
+        working-directory: ./ai-palmistry-android
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: ai-palmistry-android/build/app/outputs/flutter-apk/app-debug.apk
