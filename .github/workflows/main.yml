@@ -1,5 +1,4 @@
-name: AI Palmistry APK Build
-
+name: AI Palmistry
 on:
 workflow_dispatch:
 push:
