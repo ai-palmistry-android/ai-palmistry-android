@@ -1,21 +1,55 @@
-ai-palmistry-android/
-│
-├── .github/
-│   └── workflows/
-│       └── main.yml
-│
-├── gradlew
-├── gradlew.bat
-├── settings.gradle
-├── build.gradle
-│
-├── gradle/
-│   └── wrapper/
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-│
-└── app/
-    ├── build.gradle
-    └── src/
-        └── main/
-            └── AndroidManifest.xml
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Find Gradle Wrapper
+        run: |
+          echo "Searching for Gradle Wrapper..."
+          find . -name gradlew -type f
+
+      - name: Build Android APK
+        run: |
+          if [ -f "./gradlew" ]; then
+            chmod +x ./gradlew
+            ./gradlew assembleDebug
+          elif [ -f "./android/gradlew" ]; then
+            cd android
+            chmod +x ./gradlew
+            ./gradlew assembleDebug
+          else
+            echo "ERROR: Gradle Wrapper not found."
+            echo "Android Gradle project files must be added."
+            exit 1
+          fi
+
+      - name: Upload APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: |
+            **/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
