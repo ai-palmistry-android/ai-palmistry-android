@@ -29,12 +29,14 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+        working-directory: ./ai-palmistry-android
 
       - name: Build Debug APK
         run: flutter build apk --debug
+        working-directory: ./ai-palmistry-android
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: ai-palmistry-android/build/app/outputs/flutter-apk/app-debug.apk
