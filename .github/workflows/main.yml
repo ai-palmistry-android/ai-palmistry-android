@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build AI Palmistry APK
 
 on:
   workflow_dispatch:
@@ -8,10 +8,11 @@ on:
 
 jobs:
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout project
         uses: actions/checkout@v4
 
       - name: Set up Java
@@ -20,36 +21,23 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
         with:
-          node-version: '20'
+          gradle-version: '8.9'
 
-      - name: Find Gradle Wrapper
+      - name: Check Android project
         run: |
-          echo "Searching for Gradle Wrapper..."
-          find . -name gradlew -type f
+          echo "Checking Android project files..."
+          ls -la
+          ls -la android
 
-      - name: Build Android APK
-        run: |
-          if [ -f "./gradlew" ]; then
-            chmod +x ./gradlew
-            ./gradlew assembleDebug
-          elif [ -f "./android/gradlew" ]; then
-            cd android
-            chmod +x ./gradlew
-            ./gradlew assembleDebug
-          else
-            echo "ERROR: Gradle Wrapper not found."
-            echo "Android Gradle project files must be added."
-            exit 1
-          fi
+      - name: Build APK
+        run: gradle -p android assembleDebug
 
       - name: Upload APK
-        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: android-apk
-          path: |
-            **/build/outputs/apk/debug/*.apk
+          name: AI-Palmistry-APK
+          path: android/**/build/outputs/apk/**/*.apk
           if-no-files-found: error
