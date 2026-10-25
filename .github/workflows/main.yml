@@ -27,10 +27,11 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Check repository files
+        run: ls -la
+
       - name: Install dependencies
         run: flutter pub get
-        # यदि आपका प्रोजेक्ट किसी फोल्डर के अंदर है, तो नीचे working-directory जोड़ें:
-        # working-directory: ./folder_name
 
       - name: Build Debug APK
         run: flutter build apk --debug
