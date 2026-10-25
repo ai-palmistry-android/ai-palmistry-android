@@ -1,0 +1,10 @@
+﻿2026-10-25T12:11:33.6452167Z ##[group]Run if [ -d android ]; then
+2026-10-25T12:11:33.6452580Z [36;1mif [ -d android ]; then[0m
+2026-10-25T12:11:33.6452913Z [36;1m  echo "Android directory exists"[0m
+2026-10-25T12:11:33.6453246Z [36;1m  ls -la android[0m
+2026-10-25T12:11:33.6453539Z [36;1melse[0m
+2026-10-25T12:11:33.6453812Z [36;1m  echo "Android directory is missing"[0m
+2026-10-25T12:11:33.6454131Z [36;1mfi[0m
+2026-10-25T12:11:33.6524567Z shell: /usr/bin/bash -e {0}
+2026-10-25T12:11:33.6524910Z ##[endgroup]
+2026-10-25T12:11:33.6621282Z Android directory is missing
